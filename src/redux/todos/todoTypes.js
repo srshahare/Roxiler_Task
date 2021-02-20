@@ -1,0 +1,10 @@
+//todo action types
+export const FETCH_TODO_REQUEST = 'FETCH_TODO_REQUEST'
+export const FETCH_TODO_SUCCESS = 'FETCH_TODO_SUCCESS'
+export const FETCH_TODO_FAILURE = 'FETCH_TODO_FAILURE'
+
+//user action types
+export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST'
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
+export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE'
+

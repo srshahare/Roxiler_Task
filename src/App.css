@@ -1,6 +1,12 @@
 .App {
   text-align: center;
+  padding: 1rem;
 }
+
+.App h3 {
+  text-decoration: underline;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -34,5 +40,11 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .App {
+    padding: 0;
   }
 }

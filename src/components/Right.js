@@ -1,10 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import '../containers/Home.css'
+import { RightFun } from '../custom/RightFun'
 
 const Right = () => {
-    const info = useSelector(state => state.user.user)
-    const todo = useSelector(state => state.user.todoId)
+    
+    //functional component of right component
+    const {info, todo} = RightFun();
+
     return (
         <div>
             <h3>User Details</h3>

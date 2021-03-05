@@ -1,40 +1,35 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import LeftTable from "../components/LeftTable";
 import Right from "../components/Right";
-import { fetchList } from "../redux/todos/todoActions";
+import HomeFun from "../custom/HomeFun";
 import "./Home.css";
+import TodoList from "./TodoList";
 
 const Home = (props) => {
-  useEffect(() => {
-    props.fetchList();
-  }, [])
+  
+  //functional component of home component
+  const { data } = HomeFun(props)
 
-    return (
-      <div className="Home">
-        <div className="UserList">
-          <LeftTable
-            todos={!props.data.loading && props.data.list}
-            loading={props.data.loading}
-          />
-        </div>
+  return (
+    <div className="Home">
+      <div className="UserList">
+        <LeftTable
+          todos={!data.loading && data.list}
+          loading={data.loading}
+        />
+      </div>
+      <div className="RightContent">
         <div className="UserDetails">
-            <Right />
+          <Right />
+        </div>
+        <div className="UserSameTodos">
+          <TodoList todos={!data.loading && data.list} />
         </div>
       </div>
-    );
-}
-
-const mapStateToProps = (state) => {
-  return {
-    data: state.todo,
-  };
+    </div>
+  );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchList: () => dispatch(fetchList()),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
+export default Home;
